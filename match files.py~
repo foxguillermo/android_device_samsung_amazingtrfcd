@@ -1,0 +1,20 @@
+
+
+elines = {}
+for l in open("extract-files.sh","r").readlines():
+    if ("#" in l):
+        continue
+    if ("mkdir" in l):
+        continue
+    if "" == l.strip():
+        continue
+    ls = l.split(" ")
+    libname = ls[2]
+    ll = libname.split("/")
+    if len(ll) > 1:
+        libname = libname[-1]
+        elines[libname] = libname
+
+for l in open("system_libs","r").readlines():
+    
+    
